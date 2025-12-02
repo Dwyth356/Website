@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Northern Taste</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background-color: #6f4e37; /* coffee brown */
+            color: white;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        header nav ul li a:hover {
+            color: #d4a373;
+        }
+
+        /* Home */
+        #home {
+            height: 100vh;
+            background: url('https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/473542013_689248687001758_8354845070864725025_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeH7YJM55JwJOCdiLvXarnE_frSaIttq725-tJoi22rvblM7VxpxO-fELPZFdCxjd-AFkbgXUy-V9XqfJNnsOAYy&_nc_ohc=KhPr9rt-ucsQ7kNvwEjEPpR&_nc_oc=AdmLLB1yNm2k6h-gdjVqyKKWmqEMuw9-qrNuf6ykPLrzyCo_lkFNFNlLYY9XPNDOJsoHM0QboM6L_kVos8DY8EuW&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=AlxJpEGEpex6MLA0vuBH4w&oh=00_AfmtkxGUmIfKxN0ofxZ20i6olukLGhHQ4S-pEpnxl3QdiQ&oe=69344768') center center/cover no-repeat;
+            display: flex;
+            justify-content: flex-start; /* Text on left */
+            align-items: center;
+            padding-left: 50px;
+            text-align: left;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: 0;
+        }
+
+        .home-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Slide-in animations with delays */
+        .home-content h1 {
+            font-size: 6rem;
+            font-family: 'Times New Roman', Times, serif;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s forwards;
+        }
+
+        .home-content .quote {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s forwards 0.5s; /* Delay 0.5s */
+        }
+
+        .home-content button {
+            padding: 10px 20px;
+            background-color: #d4a373;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideIn 1s forwards 1s; /* Delay 1s */
+        }
+
+        .home-content button:hover {
+            background-color: #b87950;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Menu */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;600&display=swap');
+
+    #menu {
+        padding: 100px 50px 50px;
+        background-color: #fdf6f0;
+        font-family:'Times New Roman', Times, serif;
+    }
+
+    #menu h2 {
+        text-align: center;
+        margin-bottom: 50px;
+        font-family: 'Great Vibes', cursive;
+        font-size: 3rem;
+        color: #6f4e37;
+    }
+
+    .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px;
+        justify-items: center;
+    }
+
+    .menu-item {
+        background-color: #ffffff;
+        border-radius: 20px;
+        overflow: hidden;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .menu-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .menu-item h3 {
+        font-family: 'Great Vibes', cursive;
+        font-size: 1.8rem;
+        color: #6f4e37;
+        margin: 10px 0;
+    }
+
+    .menu-item p {
+        font-size: 1rem;
+        color: #a67c52;
+        margin-bottom: 15px;
+    }
+
+    .menu-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+
+        /* Location */
+        #location {
+            padding: 100px 50px;
+            text-align: center;
+            background-color: #e0d4c0;
+        }
+
+        #location .map-img {
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        #location .address {
+            font-size: 1.2rem;
+            font-family: 'Times New Roman', Times, serif;
+            color: #6f4e37;
+        }
+
+        /* Gallery */
+        #gallery {
+            padding: 100px 50px;
+            background-color: #f2e6dc;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Contact */
+        #contact {
+            padding: 100px 50px;
+            text-align: center;
+            background-color: #e0d4c0;
+        }
+
+        .social-icons a img {
+            width: 40px;
+            margin: 0 10px;
+        }
+
+        .message-bar {
+            margin-top: 20px;
+        }
+
+        .message-bar input {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .message-bar button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #6f4e37;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message-bar button:hover {
+            background-color: #5a3c2c;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            #home {
+                justify-content: center;
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .home-content h1,
+            .home-content .quote,
+            .home-content button {
+                transform: translateY(-20px);
+                animation: slideInMobile 1s forwards;
+            }
+
+            @keyframes slideInMobile {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/274681119_174885231771442_5556178277711713313_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEPqjoPDlQaZz6FYBi7My5sh1EtO2JCVTiHUS07YkJVOLHNZ-H9PuCRoO2QErhSzcgRXsa2OBhj-wwcVvTGAYu6&_nc_ohc=aWYqqC24v4cQ7kNvwFZEbe6&_nc_oc=AdnuhSwlWSNrgak9ZEGwuOozXAh_lIeYlP3C2_LCSPeVXGgniMUf0zCkut4RWLKmz67Do3fyeEureH9I6fVuOLwZ&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=oXLaT7JbVEHX1XGkBG0qoA&oh=00_AflnXAy7-L4exUMc_O10z5-jkC3X7J37DrO-UmFW2ylR8g&oe=69344ADB" alt="Coffee Shop Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="home-content">
+            <h1>The Northern Taste</h1>
+            <p class="quote">"Connecting people one cup at a time."</p>
+            <button onclick="scrollToMenu()">Order Now</button>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+    <h2>Our Menu</h2>
+    <div class="menu-grid">
+        <div class="menu-item">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/473794166_690813043511989_6679863668922886802_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGFpP9tZ98qg_uMDMMBa7xmmuF5AsNW-6Oa4XkCw1b7o8gjT3OnxyBAm-Kp0IhqAThUT5ZxBUWh-VSEnm4tGoKI&_nc_ohc=iDGOM6tHCZ0Q7kNvwHtetyy&_nc_oc=AdlCdmlG8fzHoUpqCpQ6JC2kBpdaIG3vCXK4AzGBqYjSHax5Kq0ewQ7yybOeN2Z0plPxn5ONwu3o2jCScHs0BASl&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=i8NIM_kWfBJcOWKNOqYD9g&oh=00_AfnShRW1oyVOkpkVpYV6jug6h2got6p3WiU1XQU_oSOowA&oe=69344186" alt="Menu 1">
+            <h3> Iced Matcha Latte </h3>
+            <p>110 php</p>
+        </div>
+        <div class="menu-item">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/473224107_689273773665916_4810870997269819113_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFlODVgxh_hS77J8OEb4KTrP_5bdyPuxRM__lt3I-7FEwGcdAxLvMyUmkvahAHhgDSnJtnghvQAe-9nzAiqcWV6&_nc_ohc=-sPDO37IXpwQ7kNvwGjkV9a&_nc_oc=Adm_ITU4ATFCVUulauDRq6yw3SuJbg1XeJHVW6cjjjOkHUttQa7HjAH0tZhjK4AdfzMm0A27DhS6TrrX9S0eBgXA&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=arxZJqCu_Q8H4w-d2_soFw&oh=00_Afmrp1EynbAnn7cARe-_wa2kZBbj_Q6k55MBImMbpTQaXQ&oe=693441C4" alt="Menu 2">
+            <h3>Blue Velvet Latte</h3>
+            <p>120 php</p>
+        </div>
+        <div class="menu-item">
+            <img src="https://scontent.fmnl13-3.fna.fbcdn.net/v/t39.30808-6/473187758_689271863666107_8330600358881113189_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHUyQTbNY1t2w4fDYFt8axMKIwO4YwLD_AojA7hjAsP8EakyDziz_tbiZnuSfwtC42BcCbjAmAUdVWS8bva5vAy&_nc_ohc=MTqmNRymSdQQ7kNvwHURcV7&_nc_oc=AdmSVCCYY4DskOz2hkFkkxwXI1dDvsq0tnd8Lj5yTzSvm1_m_UQBIDSHVHsTeNpFGyXeX2jm0ItsHaPugTqnjy2U&_nc_zt=23&_nc_ht=scontent.fmnl13-3.fna&_nc_gid=4LUDITV-TkFjgdMNEq1SVw&oh=00_AfnEGm3DlU7ah5S_9usf--30wORsQFu5mHa6iG4m_CCe3w&oe=69344FBF" alt="Menu 3">
+            <h3> Caramel Macchiato</h3>
+            <p>110 php</p>
+        </div>
+        <div class="menu-item">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/473184682_689266540333306_2251912564204494662_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFhFrUOFJ_7VRIU1EOUo_jwCVM5SvC02xcJUzlK8LTbF4zVwDgpRzz0DWeulGuAogMdzKiXC1_2SfFWU8aDBCu2&_nc_ohc=PlPffFEyIWkQ7kNvwF_JuoC&_nc_oc=Adkz5SXPhUsGDwR2tNkVqb3ykOg5q0brKB_4ZvV8A99zJoSf0EYGKUUU6ot4p8RZAvzQwiZA_G6BO9J1GrbYuZXH&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=BW8kFb9OG-ZJqxEZf8s1Ig&oh=00_AflYB6q-f9zosJief43metUGGqTZZnepUFryoCro9wOa0w&oe=693443FD" alt="Menu 4">
+            <h3> Red Velvet Frappe</h3>
+            <p>130 php</p>
+        </div>
+        <div class="menu-item">
+            <img src="https://scontent.fmnl13-3.fna.fbcdn.net/v/t39.30808-6/473686149_690816596844967_7165419839851565340_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGUG8SNbhWfs8DoHQ8F0APVxI09KEphxPDEjT0oSmHE8IB7jGa3HlXXqbsOjVC3MnqqKGjwWbXmhePk_PdMgfKZ&_nc_ohc=hmn19csdqmcQ7kNvwElmIn0&_nc_oc=Adk8WQN391T29OpZoWM0pdb0hEN7eajuu-NUYpoZjLw4l3bUzOohd9nZ6cFVsrshZ2zsjX_ep61Y_BO-dsUK1TN4&_nc_zt=23&_nc_ht=scontent.fmnl13-3.fna&_nc_gid=5zILFs7JFjgf6gji9fEeIA&oh=00_Afn-i2ZFnrmJKJx0lshqDOk_1rwUIjZvkP0C0iGOz9NLxg&oe=69344B00" alt="Menu 5">
+            <h3> Blue Velvet Frappe</h3>
+            <p>130 php</p>
+        </div>
+        <div class="menu-item">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/473733557_692754553317838_3333814714554725549_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHfqOD3-YpvuYjmWvOaROHRJin5StQfl_UmKflK1B-X9bKCOXXctaI5wQQNPWE4IWJ-gLXEaF7rEFyHPRTvHoru&_nc_ohc=vQ-oLGSVi4gQ7kNvwFAIcXN&_nc_oc=AdkQRWwPZfk8u66ib14u-1iRbDfoyj_7j0oUYH_cteUDTMfkFfRdQUGt7Rj6sG5wZazqW-SSE8PmASMiZUq5ckpZ&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=pRXFp75bNBYXVfhPM4kpXg&oh=00_Afl34c49kg9v_jaY2MPhCsYtFiK4JtdrlBsfQ_7a2tHsKQ&oe=69345589" alt="Menu 6">
+            <h3>Yorkshire Iced Coffee</h3>
+            <p>110 php</p>
+        </div>
+        <div class="menu-item">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/474894257_632177449379111_3244075191091660066_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE2jZaXRPLod3ApNrmf4HtfyVG1OtIIHwLJUbU60ggfAuO-grVlfgDmPwrGZcLSvzHGKDioezbLnaDzYda3I4nV&_nc_ohc=oe_HUu5-nb0Q7kNvwHrynId&_nc_oc=AdkUDKQspDFA5n2Z1wi0qFW4HJRsMIb7pukX3_xdc5qWF965VQu5Vcp2bhFUSlZH8cjC20p7AbqDHgiUzSZmGOpR&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=o3ggjV30_aIJKsrteBv49w&oh=00_Afk6ZSflvl-kgxRX9PguOHOHvBMDJpWBienj8Sc1pAkxYg&oe=693472DF" alt="Menu 7">
+            <h3>Mojito Elements</h3>
+            <p>125 php</p>
+        </div>
+        <div class="menu-item">
+            <img src="https://scontent.fmnl13-3.fna.fbcdn.net/v/t39.30808-6/474597535_633336532596536_1668174288049983738_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEfxa0l1bOkDORR5EiQfEBOdqtb0ytp7Rl2q1vTK2ntGYHLcDDbMotAoFqa5V0xTqb6jYbjD74Hop7NZg3-HQit&_nc_ohc=nGEFdluy7KoQ7kNvwFlX_sC&_nc_oc=AdmZeaLakPfxPkfUjUU-MirYjmh3GaC8J2U5mKlvj9-HYa2vSH7WWTrsMF3WVcsIfqEO_mMxhXU4ihZ5IjzflIqT&_nc_zt=23&_nc_ht=scontent.fmnl13-3.fna&_nc_gid=w0WU9y9QfZooCXWL-uyLMA&oh=00_AflSwNVR2ien1aIgXsSfOm7ZTTmfxFid3VwMCJI_bwR0qg&oe=69346D20" alt="Menu 8">
+            <h3>Blueberry Frappe</h3>
+            <p>130 php</p>
+        </div>
+    </div>
+</section>
+    <!-- Location Section -->
+    <section id="location">
+        <h2>Our Location</h2>
+        <img src="https://image2url.com/images/1764659861535-29d61314-181f-495f-83d2-7dcc55fb8ea4.png" alt="Map Image" class="map-img">
+        <p class="address">National Road, Brgy. 32, Corocor, Bacarra, Ilocos Norte, Bacarra, Philippines, 2916</p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/476377315_643418774921645_2834267397458515275_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEUdlJZsmx0ljOBmkThTew19LTmkao4khn0tOaRqjiSGXrWK7pdU9GTjyuGLba5Qrqa-BwBmGJOOmT7IUB66Aoc&_nc_ohc=H9Lhk4lHW_sQ7kNvwF9s4N8&_nc_oc=AdmotkqFlNAiwr9sKr0u0q1XjA7zPtjtiD4mjXVUX2vTl2Utyn6pk6hji_vHiEzPxkblq8LcDGYfijrdki6xQX09&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=lf75FRzcXlAyU6oVWW1ZRg&oh=00_Afm891J5xvNQC-UWxyd4aShOWdYv1BSs5Gd8pAOXWiKeiw&oe=69346E58" alt="Gallery 1">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/476425161_643417904921732_6571234794791474254_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG0sRsJ5MHG0ARJOV85Fu2AI-tiCM0LZ7Ej62IIzQtnsV7WbUDT7ilE9sU7G3M2cRwlZI1xgjjbwEZUUBfQvsJS&_nc_ohc=3hiA4pb7r9YQ7kNvwGPbDdj&_nc_oc=AdnQaHINb1OxvJmlYh8w8ttEm8aQeL3bJpwUyfLLZzGuPH1oJoFf_9EcRvth3LZgr3783NTcK0_ZwVFq824j1kJu&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=7WOIBwjvXaMp7yaacs9YcQ&oh=00_AflXmunw81LVBZLKhGC5iOMlKQWPPjokxZrq34nfeJtoeQ&oe=69346947" alt="Gallery 2">
+            <img src="https://scontent.fmnl13-3.fna.fbcdn.net/v/t39.30808-6/476362410_643417671588422_8848279143764277346_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHw3KbgK9B-FERoXRvHllWC7jqpb2BAugnuOqlvYEC6CbC3sWO8QAAAfaGc9puTp1uYjMJkH5gnRqNMjRqKHDUD&_nc_ohc=K8WIlZQn3qQQ7kNvwGEPRa6&_nc_oc=AdlW_9Pzq6FJIDaKSN8cPviVZOe19wM3DU8JMdUKFXroJgjPWsF0kNdjHrLatmr-guTm-F_7d0MjvCE8oKu5D5tO&_nc_zt=23&_nc_ht=scontent.fmnl13-3.fna&_nc_gid=dGCnZGY_KWKJ8wWr1FgtFg&oh=00_AfnjSuo5Ygs4sLdgh_Twq_LsTZr2YdTxuSTBsK3lm4qkiA&oe=69345027" alt="Gallery 3">
+            <img src="https://scontent.fmnl13-4.fna.fbcdn.net/v/t39.30808-6/476724855_643417454921777_1826729591047467444_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE5uGc9QW99wBuBivrCaLoHI-ew9nf2vUQj57D2d_a9RA8gsEz6jZXSutIb-y9abcXG_R468zEXkgs-Tg0_4_Uq&_nc_ohc=7anzab_TMnQQ7kNvwGGqk4j&_nc_oc=Admq8Nof9FyA8S4gT_5RYFAg6k9qSiNX_o_tpBukOGFNKeXMm57UD9HfYCk7cxnngtOnAnbuys9hKan6NweP5Jgm&_nc_zt=23&_nc_ht=scontent.fmnl13-4.fna&_nc_gid=kcyX7r6Q1ukZXNu4ldGzmg&oh=00_Afkdl1O-wF7m8u4IclXsEvAEggbNckeovUosJQErPiggKQ&oe=69345C8C" alt="Gallery 4">
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/thenortherntaste" target="_blank"><img src="https://freepnglogo.com/images/all_img/facebook-logo.png" alt="Facebook"></a>
+            <a href="https://tiktok.com/@youraccount" target="_blank"><img src="https://www.logopng.com.br/logos/tiktok-31.png" alt="TikTok"></a>
+            <a href="https://www.instagram.com/thenortherntaste.ilocos?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><img src="https://ocmusicnews.com/wp-content/uploads/2020/01/ig-logo.jpg" alt="Instagram"></a>
+        </div>
+        <div class="message-bar">
+            <input type="text" placeholder="Message us...">
+            <button>Send</button>
+        </div>
+    </section>
+
+    <script>
+        function scrollToMenu() {
+            document.getElementById('menu').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Message send simulation
+        const sendBtn = document.querySelector('.message-bar button');
+        sendBtn.addEventListener('click', () => {
+            const msg = document.querySelector('.message-bar input').value;
+            if(msg.trim() !== '') {
+                alert(`Message sent: "${msg}"`);
+                document.querySelector('.message-bar input').value = '';
+            } else {
+                alert('Please enter a message.');
+            }
+        });
+    </script>
+</body>
+</html>
